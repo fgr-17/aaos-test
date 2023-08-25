@@ -39,6 +39,11 @@ RUN export REPO=$(mktemp /tmp/repo.XXXXXXXXX) && \
 RUN ln -s /usr/bin/python3      /usr/bin/python
 RUN ln -s /root/bin/repo/repo.* /usr/bin/repo
 
+# git identity needed for repo sync
+RUN git config --global user.name "aaos builder"
+RUN git config --global user.email "aaos@builder.com"
+
+
 # needed!
 RUN printf "\nalias ls='ls --color=auto'\n" >> ~/.bashrc
 RUN printf "\nalias ll='ls -alF'\n" >> ~/.bashrc
